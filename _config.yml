@@ -13,6 +13,9 @@ markdown: kramdown
 plugins:
   - jekyll-feed
 
+disqus:
+  shortname: sam-1gna
+
 exclude:
   - Gemfile
   - Gemfile.lock

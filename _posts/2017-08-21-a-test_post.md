@@ -3,6 +3,7 @@ layout: post
 title:  "A Test Post"
 date:   2017-08-21 12:24:13 +0300
 categories: php
+comments: true
 ---
 
 ### Basic Usage
