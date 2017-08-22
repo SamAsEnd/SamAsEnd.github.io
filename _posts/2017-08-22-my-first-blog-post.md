@@ -10,11 +10,11 @@ Wow, my first blog post and I don't have anything to talk about (just kidding). 
 Plus I can create a list of my upcoming posts as a reminder
 
 In the coming week, I probably write about 
-   [ ] Blogging on GitHub with Jekyll
-   [ ] LaTex and Markdown
-   [ ] Two or more factor authentication, 3D passwords, and one time passwords
+ - Blogging on GitHub with Jekyll
+ - LaTex and Markdown
+ - Two or more factor authentication, 3D passwords, and one time passwords
 
-But I think this is enough for today.
+Stay tuned, but I think this is enough for today.
 
 Ciao
 
@@ -22,8 +22,8 @@ Wait for a second, did you know ciao (ቻዎ) is Italian? You probably do but I 
 
 It formally translates to "Hello" in English, "addio" is the formal way to say "Good bye" in Italian.
 
-![Ciao in English](images/ciao-in-english.png)
-![Goodbye in Italian](images/goodbye-in-italian.png)
+![Ciao in English](/images/ciao-in-english.png)
+![Goodbye in Italian](/images/goodbye-in-italian.png)
 
 The good news is you can use ciao in non-formal/friendly conversations.
 
