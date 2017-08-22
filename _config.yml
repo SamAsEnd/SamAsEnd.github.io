@@ -16,6 +16,8 @@ plugins:
 disqus:
   shortname: sam-1gna
 
+google_analytics: UA-105095773-1
+
 exclude:
   - Gemfile
   - Gemfile.lock
