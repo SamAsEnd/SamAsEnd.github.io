@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  My first blog post
 date:   2017-08-22 14:58:00 +0300
 comments: true

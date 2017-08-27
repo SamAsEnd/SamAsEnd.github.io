@@ -1,5 +1,6 @@
 title: What has Sam been doing lately?
 email: sam@1gna.com
+signoff: SamAsEnd
 description: >
   Some thoughts on software, technology and  
   anything else that's on my mind.
@@ -17,6 +18,20 @@ disqus:
   shortname: sam-1gna
 
 google_analytics: UA-105095773-1
+
+share: true
+
+links:
+  - name:         Posts
+    url:          /
+    external:     false
+  - name:         About me
+    url:          /about
+    external:     false
+
+defaults:
+  - values:
+      layout: "default"
 
 exclude:
   - Gemfile

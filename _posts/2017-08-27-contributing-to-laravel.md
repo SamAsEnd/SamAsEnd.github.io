@@ -1,5 +1,4 @@
 ---
-layout: post
 title:  Contributing to Laravel
 date:   2017-08-27 17:15:00 +0300
 comments: true
