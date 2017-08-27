@@ -44,7 +44,7 @@ but it was still not changing. I know for sure this command uses to change the n
 First, I search for `AppName` and I found out the `app:name` command resides on `Illuminate\Foundation\Console\AppNameCommand` class and I started skimming through the code. Since every command implements the handle method, I jump to the handle method and I saw `$this->setDatabaseFactoryNamespaces();` it looks convenient that the database factory is handled there so I jump to the `setDatabaseFactoryNamespaces` method.
 
 On line 224 I found the method and I were shocked. it read as 
-```php
+```php?start_inline=1
 $this->replaceIn(
     $this->laravel->databasePath().'/factories/ModelFactory.php',
     $this->currentRoot, $this->argument('name')
