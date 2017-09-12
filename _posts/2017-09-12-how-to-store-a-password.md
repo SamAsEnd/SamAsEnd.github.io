@@ -242,9 +242,9 @@ When the user login we can authenticate them like this
 $stmt = $pdo->prepare('SELECT * FROM users WHERE email=:email LIMIT 1;');
 $stmt->execute([':email' => $email]);
 
-if ($stmt->rowCount() > 0 && ($user = $stmt->fetch()) &&
-	password_verify($_POST['password'], $user->password)) {
-	// login successed
+if ($stmt->rowCount() > 0 && ($user = $stmt->fetchObject()) &&
+    password_verify($_POST['password'], $user->password)) {
+    // login successed
 } else {
 	// login failed
 }
