@@ -21,6 +21,7 @@ where you can copy and paste code but I thought I should at least give them a hi
 ## Here is why storing password in clear is bad
 
 ![have i been pwned myspace](/images/haveibeenpwned-myspace.png)
+
 More pawned sites at [https://haveibeenpwned.com/PwnedWebsites](https://haveibeenpwned.com/PwnedWebsites)
 
 Imagine if someone used the same password in their PayPal account. In the matter of fact, 
@@ -31,14 +32,14 @@ found out 55% of net users use the same password for most, if not all, websites.
 ![i will just use the same password](/images/i-will-just-use-the-same-password.jpg)
 
 Plus my email was found in three data breaches. If I have been using the same password as the
-same as my Facebook, Google or GitHub accounts it a disaster, right?
+same as my Facebook, Google or GitHub accounts it's a disaster, right?
 
 > In a side note, check out if u have been pawned by clicking [here](https://haveibeenpwned.com).
 
 Now I think you understood why you should store users password securely. Not doing so
 is letting your client and customer down with you when you got hacked.
 
-How to store a password in a database?
+## How to store a password in a database?
 
 I will first list how you should **NOT** store passwords then I will show you the right way 
 to store a password.
@@ -61,8 +62,8 @@ Even Caesar cipher is better than base64 encoding. Your adversary can just decod
 a password in a clear.
 
 ## 3. Encrypt them with a single key
-A lot of people do this (Including Adobe), they have a **"SUPER SECRET"** key in the backend 
-to encrypt every password in the database.
+A lot of people do this ([Including Adobe](https://nakedsecurity.sophos.com/2013/11/04/anatomy-of-a-password-disaster-adobes-giant-sized-cryptographic-blunder/)), 
+they have a **"SUPER SECRET"** key in the backend to encrypt every password in the database.
 
 Well, this is defiantly better than the previous once. Even if an adversary compromises you 
 database he/she will get only the cipher of the password and they don’t know the key.
@@ -78,7 +79,7 @@ The attacker only needs to try one key for every user. Let me rephrase it, The a
 only needs to go through the key space once to compromise every password. If they found
 a key for deciphering one password they can use it to decipher every password.
 
-### Third: An adversary can have a rainbow table for every key you could possibly have a password
+### Third: An adversary can have a rainbow table for every key you could possibly have as a password
 Plus they don't need to encrypt every possible password. They can encrypt one chosen password with 
 every possible key once and sign up for your service with that password and look up the cipher 
 in the rainbow table to learn the key.
@@ -86,9 +87,9 @@ in the rainbow table to learn the key.
 I can list more but this should be enough to convince you not to use it
 
 ## 4. Encrypt it by itself as a key
-When I was in Bahir Dar University defending some project of mine I was suggested by one of 
+When I was in [Bahir Dar University](http://bdu.edu.et) defending some project of mine I was suggested by one of 
 the examiners to encrypt the password by it self as a key to store as a password. I know 
-it's not secure but I didn't judge her because of that how she learned about hashing/one-way function.
+it's not secure but I didn't judge her because that's how she learned about hashing/one-way function.
 
 The problem is when lecturers thought their students about a hash functions they use this analogy. 
 Let's say I have a users password in a registration form and I encrypt it's with it self and 
@@ -112,7 +113,7 @@ Or simply, if i saw someone else's password cipher and it's the same as mine. Me
 An adversary can have a rainbow table for every password just by going in the key space once just 
 like the previous one. Every password have the same corresponding key.
 
-We can also generate a rainbow table for the most used password which is economic.
+We can also generate a rainbow table for the most used passwords which is economic.
 
 ### Third: Depending on the cipher you are using it can leak the length of the password.
 
@@ -132,12 +133,12 @@ This is way better than any of the above but still not secure enough to store pa
 ### First: Google search / Rainbow table
 I better demonstrate this one. Google for `5d7845ac6ee7cfffafc5fe5f35cf666d`. Awesome right?
 
+![wonka md5](/images/wonka-md5.jpg)
+
 You think md5 is the only one? Google for `f2b14f68eb995facb3a1c35287b778d5bd785511`
 and `fcf730b6d95236ecd3c9fc2d92d7b6b2bb061514961aec041d6c7a7192f592e4`
 
 and perhaps for `348735696e74c45e7fbf9c6839d87f891486d19e5059db7e397d5086e486dc0051a533752805dc9288463673f0a6fcbf2a655548738a85305b2d571bae44a71e` too.
-
-![wonka md5](/images/wonka-md5.jpg)
 
 You are screwed if your adversary knows how to Google. lol
 
@@ -181,14 +182,16 @@ Cracking a single hash would take a couple of minute or hours in average I suppo
 ### Third: Length extension attack
 I will let you Google that too
 
-Now let's see how you SHOULD store your password.
+Right now i hope you realized that none of the above are secure.
 
-Believe it or not, this is the hardest part. I can just recommend you how you should store your password
- but it might be not secure next year so it's hard if people don't find an updated state of the art 
- password storage. 
+## Now let's see how you SHOULD store your password.
+
+Believe it or not, this is the hardest part. I can just recommend you how you should store users password
+but it might be not secure next year so it's hard if people don't find an updated state of the art 
+password storage technique.
 
 I hope I will remove or recommend a better one if this information became irrelevant and misguiding but 
-please Google the recent blog post if you are reading this in the future.
+please Google the recent blog post if you are reading this in the distant future.
 
 As today(Sept 12, 2017) the recommended way of storing password is using 
 
@@ -222,37 +225,34 @@ Now I highlight how you can corporate bcrypt into you PHP project.
 
 > Make sure you are using PHP >= 5.5
 
-Now let's say the user is registering and we have their password we can bcrypt it as  
+Now let's say the user is registering and we have their password, we can bcrypt it as  
 
-```php
+```php?start_inline=1
 $hashed = password_hash($password, PASSWORD_BCRYPT);
 ```
 
 now go head and store the password.
 * Make sure the password field is at least 100 characters long
 * No need to generate salt by your self PHP got your back
-* There is a third parameter which specifies options but please leave it as it is, it’s a pretty good default
+* There is a third parameter which specifies options but please leave it as it is, it has a pretty good default
 
 When the user login we can authenticate them like this
-```php
+
+```php?start_inline=1
 $stmt = $pdo->prepare('SELECT * FROM users WHERE email=:email LIMIT 1;');
 $stmt->execute([':email' => $email]);
 
 if ($stmt->rowCount() > 0 && ($user = $stmt->fetch()) &&
-	password_verify($_POST['password'], $user->password))
-{
+	password_verify($_POST['password'], $user->password)) {
 	// login successed
-}
-else
-{
+} else {
 	// login failed
 }
 ```
 
 That’s how easy it is. But please don’t deal with password your self, use a framework.
 
-Happy new year
-
+That's all for today folks.
 Please give some feedback, it will help me in my future writings.
 
-Thanks for reading. 
+Happy new year and thanks for reading.
