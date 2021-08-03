@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Happy Jekylling!
-gem "jekyll", "3.5.2"
+gem "jekyll", "3.6.3"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
